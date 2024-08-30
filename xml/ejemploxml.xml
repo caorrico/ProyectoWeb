@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf8"?>
+<factura id="comprobante" version="1.00">
+  <infoTributaria>
+    <ambiente>1</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>Peluqueria S.A</razonSocial>
+    <nombreComercial>Peluqueria S.A</nombreComercial>
+    <ruc>1234567891001</ruc>
+    <claveAcceso>1122334455667788990123456789100111112345678909865</claveAcceso>
+    <codDoc>01</codDoc>
+    <estab>001</estab>
+    <ptoEmi>001</ptoEmi>
+    <secuencial>000001234</secuencial>
+    <dirMatriz>DIRECCION EMPRESA</dirMatriz>
+  </infoTributaria>
+  <infoFactura>
+    <fechaEmision>29/08/24</fechaEmision>
+    <dirEstablecimiento>DIRECCION ESTABLECIMIENTO</dirEstablecimiento>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <tipoIdentificacionComprador>05</tipoIdentificacionComprador>
+    <razonSocialComprador>NOMBRE DEL COMPRADOR</razonSocialComprador>
+    <identificacionComprador>1234567891</identificacionComprador>
+    <totalSinImpuesto>1.00</totalSinImpuesto>
+    <totalDescuento>0.00</totalDescuento>
+    <totalConImpuesto/>
+    <totalImpuesto/>
+    <codigo>2</codigo>
+    <baseImponible>0</baseImponible>
+    <valor>0</valor>
+    <propina>0.00</propina>
+    <importeTotal>1.00</importeTotal>
+    <moneda>DOLAR</moneda>
+    <pagos>
+      <pago/>
+      <total>1.00</total>
+      <plazo>30</plazo>
+      <unidadTiempo>dias</unidadTiempo>
+    </pagos>
+  </infoFactura>
+  <detalles>
+    <detalle>
+      <codigoPrincipal>PROD008</codigoPrincipal>
+      <descripcion>descripcion del producto</descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>1.00</precioUnitario>
+      <precioTotalSinImpuesto>1.00</precioTotalSinImpuesto>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>2</codigoPorcentaje>
+          <tarifa>0.00</tarifa>
+          <baseImponible>1.00</baseImponible>
+          <valor>0.00</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+  </detalles>
+  <infoAdicional>
+    <campoAdicional nombre="email">tucorreo@dominio.com</campoAdicional>
+  </infoAdicional>
+</factura>
