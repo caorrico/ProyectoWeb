@@ -1,14 +1,16 @@
 <?php
+$servername = "localhost:3307";
+$username = "admin";
+$password = "admin";
+$dbname = "peluqueria_p";
 
-session_start();
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$conn = mysqli_connect(
-    'localhost',
-    'admin',
-    'admin',
-    'sistema'
-);
-if($conn==true){
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}else{
     echo('Conexion exitosa');
 }
 ?>
