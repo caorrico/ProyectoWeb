@@ -136,5 +136,5 @@ $xml_fac->appendChild($cabecera);
 $xml_fac->appendChild($cabecerav);
 $xml->appendChild($xml_fac);
 
-echo 'CREADO: '. $xml->save('C:\AppServ\www\SistemaSRI\xml\ejemploxml.xml'). 'bytes';
+echo 'CREADO: '. $xml->save('C:\AppServ\www\ProyectoWeb\xml\factura.xml'). 'bytes';
 ?>
