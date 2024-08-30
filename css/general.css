@@ -1,0 +1,145 @@
+/* Reset básico para márgenes y relleno */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* Fondo blanco para la página */
+    color: #333; /* Color de texto base */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh; /* Para que el contenedor cubra toda la altura de la pantalla */
+    flex-direction: row; /* Asegura que los elementos estén en fila */
+}
+
+
+
+.content {
+    flex: 1; /* Toma el resto del espacio disponible */
+    padding: 20px;
+    background-color: white; /* Fondo blanco para el contenido */
+}
+
+.form-section {
+    background-color: white; /* Fondo blanco para la sección del formulario */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.center{
+    text-align: center;
+}
+.form-section h2 {
+    margin-bottom: 20px;
+    color: #B25068; /* Color de encabezado rosado */
+}
+input[type="button"]{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#busCategoria,#enviarProducto{
+    width: 20%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#bodeguero,#vendedor,#admin{
+    margin-right: 15%;
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#fechaHoraActual,#fecha{
+    margin-right: 15%;
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+input[type="number"],
+input[type="reset"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"],
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button {
+    background-color: #F28FB6; /* Botón con color rosado claro */
+    color: white; /* Texto blanco en el botón */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+button:hover {
+    background-color: #B25068; /* Color rosado más oscuro al pasar el ratón */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna en pantallas más pequeñas */
+    }
+    
+    .sidebar {
+        flex: 0 0 auto;
+        width: 100%; /* Barra lateral ocupa todo el ancho */
+    }
+    
+    .content {
+        flex: 1 0 auto;
+    }
+}
+/* Estilos para tablas */
+table {
+    width: 100%; /* Asegura que la tabla ocupe el ancho completo disponible */
+    border-collapse: collapse; /* Elimina el espacio entre los bordes de las celdas */
+    margin-bottom: 20px; /* Espacio debajo de la tabla */
+}
+
+th, td {
+    padding: 10px; /* Espacio dentro de las celdas */
+    text-align: left; /* Alineación del texto a la izquierda */
+    border-bottom: 1px solid #ddd; /* Borde inferior de las celdas */
+}
+
+th {
+    background-color: #F7D1E8; /* Color de fondo para las cabeceras de la tabla */
+    color: #B25068; /* Color del texto en las cabeceras */
+    font-weight: bold; /* Negrita en las cabeceras */
+}
+
+tr:nth-child(even) {
+    background-color: #F9F9F9; /* Color de fondo alternante para filas pares */
+}
+
+tr:hover {
+    background-color: #FFE4E1; /* Color de fondo al pasar el ratón sobre las filas */
+}
