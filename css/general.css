@@ -143,3 +143,7 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #FFE4E1; /* Color de fondo al pasar el ratón sobre las filas */
 }
+
+.inactive-row {
+    background-color: #f8d7da; /* Color de fondo rojo claro */
+}
