@@ -147,3 +147,13 @@ tr:hover {
 .inactive-row {
     background-color: #f8d7da; /* Color de fondo rojo claro */
 }
+
+.button-agregar {
+    width: 15% ; /* Ancho del 10% del contenedor principal */
+    margin-bottom: 10px; /* Espacio debajo del botón */
+    margin-left: 80%; /* Alinear a la izquierda */
+}
+
+.g{
+    background-color: #B25068;
+}
