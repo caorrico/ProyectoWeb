@@ -44,6 +44,12 @@
     </div>
     <div class="cont-principal">
         <h1>Lista de Servicios</h1>
+        <div class="button-agregar">
+            <!-- Redirige a Agregar_Usuario.php cuando se hace clic -->
+            <button type="button" class="btn btn-primary mb-3" id="btnAgregarServicio" onclick="location.href='Agregar_Servicio.php'">
+                Agregar Servicio
+            </button>
+        </div>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead>

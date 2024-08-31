@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost:3307";
-$username = "admin";
-$password = "admin";
+$servername = "localhost";
+$username = "root";
+$password = "rootroot";
 $dbname = "peluqueria_p";
 
 // Create connection

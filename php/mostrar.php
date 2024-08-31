@@ -25,15 +25,14 @@ if (!$resultados) {
     exit();
 }
 
-// Depuración: mostrar número de filas obtenidas
-echo "Número de filas: " . $resultados->num_rows . "<br>";
+
 
 // Procesamiento de datos
 $data = [];
 if ($resultados->num_rows > 0) {
     // Depuración: mostrar los datos obtenidos antes de procesarlos
     $data = $resultados->fetch_all(MYSQLI_ASSOC);
-    echo "Datos obtenidos: <br>";
+
     print_r($data);
 } else {
     echo "No se encontraron resultados.";
