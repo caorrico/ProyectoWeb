@@ -1,0 +1,103 @@
+/* Variables */
+:root {
+    --background: #ffff;
+    --foreground: hsl(339, 20%, 20%);
+    --muted-foreground: hsl(210, 22%, 22%);
+    --card: hsl(320, 100%, 89%);
+    --border: hsl(210, 40%, 80%);
+    --radius: 1rem;
+}
+
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    background-image:url("../img/fondoLogin.jpg");
+    color: var(--foreground);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0.9;
+}
+
+/* Login Wrapper */
+.login-wrapper {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Card */
+.card {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #b9b6b8;
+    border-radius: var(--radius);
+    font-size: 16px;
+}
+
+.card-footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4583b6;
+    border: none;
+    border-radius: var(--radius);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color:  #8bafdd;
+}
+
+/* Text Center */
+.text-center {
+    text-align: center;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: var(--muted-foreground);
+}
+
+

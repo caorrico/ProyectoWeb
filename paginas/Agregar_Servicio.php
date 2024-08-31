@@ -13,7 +13,7 @@
         <?php include 'menu.html'; ?>
     </div>
     <div class="cont-principal">
-    <h1 class="center">Registro Productos</h1>
+    <h1 class="center">Registro Servicios</h1>
   <p>&nbsp;</p>
   <form id="form1" name="form1" method="post" action="../php/anadir.php">
     <p>
@@ -25,27 +25,15 @@
 	  <p> 
     <p>
       <label for="codigo">Código:</label>
-      <input type="text" name="codigo" id="codigo"  placeholder="ASDASD2313">
+      <input type="text" name="codigo" id="codigo">
     </p>
     <p>
-      <label for="nombreprod">Producto:</label>
-      <input type="text" name="nombreprod" id="nombreprod" placeholder="Jabon Nivea">
+      <label for="nombreserv">Servicio:</label>
+      <input type="text" name="nombreserv" id="nombreserv">
     </p>
-    <p>
-      <label for="categoria">Categoría:</label>
-     
-      <input type="text" name="categoria" id="categoria" size="70" list="listCategoria">
-      <datalist id="listCategoria">  
-
-      </datalist>
-      </p>
     <p>
       <label for="descripcion">Descripción:</label>
-      <textarea name="descripcion" id="descripcion" placeholder="Describa el producto"></textarea>
-    </p>
-    <p>
-      <label for="cantidad">Cantidad:</label>
-      <input type="number" name="cantidad" id="cantidad">
+      <textarea name="descripcion" id="descripcion"></textarea>
     </p>
     <p>
       <label for="precio">Precio:</label>
@@ -53,7 +41,7 @@
     </p>
     <p>
       <input type="submit" name="anadirProducto" id="anadirProducto" value="Enviar">
-      <button>Restablecer</button>
+      <input type="reset" name="reset" id="reset" value="Restablecer">
     </p>
   </form>
     </div>

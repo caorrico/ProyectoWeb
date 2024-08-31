@@ -16,7 +16,7 @@
     <h1 class="center">Registro de Proveedores</h1>
         <form id="form1" name="form1" method="post" action="../php/anadir.php">
           <p>
-            <label for="admin">Adminstardor:</label>
+            <label for="admin">Adminstrador:</label>
             <input type="text" name="admin" id="admin" readonly>
             <label for="fechaHoraActual">Fecha:</label>
             <input type="datetime" name="fechaHoraActual" id="fechaHoraActual" readonly>
@@ -33,7 +33,7 @@
           <label for="servicios">Servicios</label>
           <textarea name="servicios" id="servicios" rows="5" placeholder="Que productos ofrece la empresa Ejemplo: Jabones"></textarea>
           <input type="submit" name="anadirProvedor" id="anadirProvedor" value="Enviar" >
-          <input type="reset" name="reset" id="reset" value="Restablecer" >
+          <button>Restablecer</button>
       </form>
     </div>
 
