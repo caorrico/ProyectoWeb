@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     formData.append('password', password);
 
     // Enviar datos al servidor utilizando fetch
-    fetch('../php/login.php', {
+    fetch('tu_archivo_php.php', {
         method: 'POST',
         body: formData
     })
@@ -19,7 +19,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(data => {
         if (data.success) {
             // Redireccionar si las credenciales son correctas
-            window.location.href = '../paginas/inicio.php';
+            window.location.href = 'pagina_destino.html'; // Cambia 'pagina_destino.html' por la página a la que deseas redirigir
         } else {
             // Mostrar mensaje de error si las credenciales son incorrectas
             alert(data.message);

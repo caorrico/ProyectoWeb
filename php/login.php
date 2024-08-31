@@ -19,7 +19,7 @@ $usuario = $_POST['username'];
 $contrasena = $_POST['password'];
 
 // Consulta (Asegúrate de usar consultas preparadas para evitar inyecciones SQL)
-$query = "SELECT * FROM persona WHERE cedula = ? AND contrasena = ?";
+$query = "SELECT * FROM persona WHERE cedula = $usuario AND contrasena = $contrasena";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("ss", $usuario, $contrasena);
 $stmt->execute();
