@@ -13,3 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Opcional: si quieres añadir más protección del lado del cliente
+function preventBack() {
+    window.history.forward();
+}
+
+// Añadir el listener para prevenir el regreso después de cargar
+window.onload = preventBack;
+window.onpageshow = function(event) {
+    if (event.persisted) preventBack();
+};
