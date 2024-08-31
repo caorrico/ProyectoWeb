@@ -32,18 +32,13 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .center{
+    width: 50%;
+    margin: auto;
     text-align: center;
 }
 .form-section h2 {
     margin-bottom: 20px;
     color: #B25068; /* Color de encabezado rosado */
-}
-input[type="button"]{
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
 }
 #busCategoria,#enviarProducto{
     width: 20%;
@@ -71,16 +66,13 @@ input[type="button"]{
     font-size: 16px;
 }
 input[type="number"],
-input[type="reset"],
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="submit"],
-textarea,
-button {
+textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px important;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -89,18 +81,26 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 button {
-    background-color: #F28FB6; /* Botón con color rosado claro */
-    color: white; /* Texto blanco en el botón */
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: auto; /* Ajusta a auto o un valor específico si deseas un ancho fijo */
+    padding: 10px 20px; /* Ajusta el padding para que ambos botones sean del mismo tamaño */
+    margin: 10px 5px; /* Margen alrededor de los botones */
+    display: inline-block; /* Asegura que los botones estén en la misma línea */
+    background-color: #F28FB6; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Elimina el borde */
+    border-radius: 5px !important; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Efecto de transición en el fondo */
 }
+
+/* Ajusta el hover de los botones */
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 button:hover {
     background-color: #B25068; /* Color rosado más oscuro al pasar el ratón */
 }
+
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

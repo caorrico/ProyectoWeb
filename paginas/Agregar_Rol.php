@@ -39,10 +39,10 @@
 		            </tr>
 		          </tbody>
 		        </table>
-			    <p>
-			      <input type="submit" name="submit" id="submit" value="Enviar">
-			    </p>
-				<button>Restablecer</button>				
+			    <div class="center">
+      <input type="submit" name="anadirProducto" id="anadirProducto" value="Enviar">
+      <button>Restablecer</button>
+</div>				
 			  </form>
     </div>
 

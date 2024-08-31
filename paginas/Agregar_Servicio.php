@@ -39,10 +39,10 @@
       <label for="precio">Precio:</label>
       <input type="number" name="precio" id="precio" step="0.01">
     </p>
-    <p>
+    <div class="center">
       <input type="submit" name="anadirProducto" id="anadirProducto" value="Enviar">
-      <input type="reset" name="reset" id="reset" value="Restablecer">
-    </p>
+      <button>Restablecer</button>
+</div>
   </form>
     </div>
 
