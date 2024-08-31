@@ -72,7 +72,7 @@ input[type="email"],
 textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px important;
+    margin-bottom: 1px !important;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -146,4 +146,14 @@ tr:hover {
 
 .inactive-row {
     background-color: #f8d7da; /* Color de fondo rojo claro */
+}
+
+.button-agregar {
+    width: 15% ; /* Ancho del 10% del contenedor principal */
+    margin-bottom: 10px; /* Espacio debajo del botón */
+    margin-left: 80%; /* Alinear a la izquierda */
+}
+
+.g{
+    background-color: #B25068;
 }

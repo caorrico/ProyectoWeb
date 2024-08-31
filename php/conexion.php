@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "localhost:3307";
 $username = "admin";
 $password = "admin";
 $dbname = "peluqueria_p";

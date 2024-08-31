@@ -16,7 +16,7 @@ include 'conexion.php';
 $conn->set_charset("utf8");
 
 // Consulta
-$query = "SELECT * FROM persona";
+$query = "SELECT * FROM persona where idpersona=1";
 $resultados = $conn->query($query);
 
 // Verificar si hubo un error en la consulta
