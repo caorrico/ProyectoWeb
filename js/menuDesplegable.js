@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function preventBack() {
     window.history.forward();
 }
-
-// Añadir el listener para prevenir el regreso después de cargar
-window.onload = preventBack;
-window.onpageshow = function(event) {
-    if (event.persisted) preventBack();
-};
+ // Llamar a preventBack cuando la página se carga.
+ window.onload = preventBack;
+ window.onpageshow = function(event) {
+     if (event.persisted) preventBack();
+ };

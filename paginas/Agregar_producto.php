@@ -12,7 +12,7 @@
     <div class="menu-lateral">
         <?php include 'menu.html'; ?>
     </div>
-    <div class="cont-principal">
+    <div class="cont-principal content">
     <h1 class="center">Registro Productos</h1>
   <p>&nbsp;</p>
   <form id="form1" name="form1" method="post" action="../php/anadir.php">

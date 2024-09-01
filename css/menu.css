@@ -9,6 +9,7 @@ html, body {
     display: flex;
     height: 100vh; 
     overflow: hidden;
+    margin-top: 101px;
 }
 
 
@@ -27,6 +28,5 @@ html, body {
 .cont-principal {
     margin-left: 20%; 
     padding: 15px;
-
     height: 100vh; 
 }
