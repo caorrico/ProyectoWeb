@@ -17,9 +17,7 @@
   <p>&nbsp;</p>
   <form id="form1" name="form1" method="post" action="../php/anadir.php">
     <p>
-			<label for="admin">Adminstrador:</label>
-		  <input type="text" name="admin" id="admin" readonly>
-		  <label for="fechaHoraActual">Fecha:</label>
+			<label for="fechaHoraActual">Fecha:</label>
 		  <input type="datetime" name="fechaHoraActual" id="fechaHoraActual" readonly>
 		</p>
 	  <p> 

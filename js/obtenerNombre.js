@@ -17,3 +17,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Llamar a la función al cargar la página
     obtenerNombreUsuario();
 });
+//Aun no funciona
