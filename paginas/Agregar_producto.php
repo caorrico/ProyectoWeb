@@ -22,20 +22,16 @@
 		</p>
 	  <p> 
     <p>
-      <label for="codigo">Código:</label>
-      <input type="text" name="codigo" id="codigo"  placeholder="ASDASD2313">
-    </p>
-    <p>
       <label for="nombreprod">Producto:</label>
       <input type="text" name="nombreprod" id="nombreprod" placeholder="Jabon Nivea">
     </p>
     <p>
       <label for="categoria">Categoría:</label>
      
-      <input type="text" name="categoria" id="categoria" size="70" list="listCategoria">
-      <datalist id="listCategoria">  
-
-      </datalist>
+      <select id="categoria" name="categoria" required>
+                    <option value="">Seleccione una categoria</option>
+                </select>
+      
       </p>
     <p>
       <label for="descripcion">Descripción:</label>
