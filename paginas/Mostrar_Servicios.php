@@ -57,7 +57,8 @@
                         <th>ID</th>
                         <th>Nombre del Servicio</th>
                         <th>Descripción</th>
-                        <th>Acciones</th> <!-- Nueva columna para las acciones -->
+                        <th>Activo</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="servicios-table-body">
