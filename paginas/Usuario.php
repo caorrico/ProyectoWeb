@@ -12,7 +12,7 @@
     <div class="menu-lateral">
         <?php include 'menu.html'; ?>
     </div>
-    <div class="cont-principal">
+    <div class="cont-principal content">
         <h1>Lista de Personas</h1>
         <div class="button-agregar">
             <!-- Redirige a Agregar_Usuario.php cuando se hace clic -->

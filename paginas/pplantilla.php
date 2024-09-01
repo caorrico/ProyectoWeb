@@ -12,7 +12,7 @@
     <div class="menu-lateral">
         <?php include 'menu.html'; ?>
     </div>
-    <div class="cont-principal">
+    <div class="cont-principal content">
         <h1>Lista de Servicios</h1>
         <ul id="servicio-lista" class="list-group">
             <!-- Aquí se insertarán los servicios -->
