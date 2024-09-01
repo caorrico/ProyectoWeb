@@ -1,29 +1,30 @@
+
+
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+    event.preventDefault(); // Evitar que el formulario se envíe de la forma tradicional
 
-    // Obtener valores del formulario
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+    // Obtener los valores de los campos del formulario
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    // Crear objeto FormData para enviar los datos
-    var formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
-
-    // Enviar datos al servidor utilizando fetch
-    fetch('../php/login.php', {
+    // Enviar los datos a través de fetch
+    fetch('php/login.php', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // Redireccionar si las credenciales son correctas
-            window.location.href = '../paginas/inicio.php';
+            window.location.href = 'paginas/inicio.php';
+            // Redirigir o realizar otra acción
         } else {
-            // Mostrar mensaje de error si las credenciales son incorrectas
-            alert(data.message);
+            console.error('Error al iniciar sesión', data.message);
         }
     })
-    .catch(error => console.error('Error al procesar la solicitud:', error));
+    .catch(error => {
+        console.error('Error en la solicitud:', error);
+    });
 });

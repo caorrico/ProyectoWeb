@@ -154,6 +154,11 @@ tr:hover {
     margin-left: 80%; /* Alinear a la izquierda */
 }
 
+.imgCentrado{
+	width: 50%;
+	margin: auto;
+}
+
 .g{
     background-color: #B25068;
 }

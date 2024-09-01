@@ -8,6 +8,7 @@ ini_set('display_errors', 1);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
+header('Content-Type: application/json'); // Asegurar que la respuesta sea JSON
 
 // Incluir conexión a la base de datos
 include 'conexion.php';
@@ -15,34 +16,41 @@ include 'conexion.php';
 // Establecer el conjunto de caracteres a utf8 para evitar problemas de codificación
 $conn->set_charset("utf8");
 
-$usuario = $_POST['username'];
-$contrasena = $_POST['password'];
+// Obtener y sanitizar entrada
+$usuario = isset($_POST['username']) ? $_POST['username'] : null;
+$contrasena = isset($_POST['password']) ? $_POST['password'] : null;
 
-// Consulta (Asegúrate de usar consultas preparadas para evitar inyecciones SQL)
+// Validar entrada
+if (empty($usuario) || empty($contrasena)) {
+    echo json_encode(["success" => false, "message" => "Usuario o contraseña no proporcionados."]);
+    exit();
+}
+
+// Consulta segura usando prepared statements
 $query = "SELECT * FROM persona WHERE cedula = ? AND contrasena = ?";
 $stmt = $conn->prepare($query);
+
+if (!$stmt) {
+    echo json_encode(["success" => false, "message" => "Error al preparar la consulta: " . $conn->error]);
+    exit();
+}
+
+// Vincular parámetros y ejecutar la consulta
 $stmt->bind_param("ss", $usuario, $contrasena);
 $stmt->execute();
 $resultados = $stmt->get_result();
 
-// Verificar si hubo un error en la consulta
-if (!$resultados) {
-    echo json_encode(["success" => false, "message" => "Error: " . $conn->error]);
-    exit();
-}
-
 // Procesamiento de datos
-$data = [];
-if ($resultados->num_rows > 0) {
+if ($resultados->num_rows == 1) {
     // Credenciales correctas
     $data = $resultados->fetch_all(MYSQLI_ASSOC);
     echo json_encode(["success" => true, "data" => $data]);
 } else {
     // Credenciales incorrectas
-    echo json_encode(["success" => false, "message" => "No se encontraron resultados."]);
+    echo json_encode(["success" => false, "message" => "Credenciales incorrectas."]);
 }
 
-// Cerrar conexión
+// Cerrar statement y conexión
 $stmt->close();
 $conn->close();
 
