@@ -12,14 +12,12 @@
     <div class="menu-lateral">
         <?php include 'menu.html'; ?>
     </div>
-    <div class="cont-principal">
+    <div class="cont-principal content">
     <h1 class="center">Registro Servicios</h1>
   <p>&nbsp;</p>
   <form id="Agregar_Servicio" >
     <p>
-			<label for="admin">Adminstrador:</label>
-		  <input type="text" name="admin" id="admin" readonly>
-		  <label for="fechaHoraActual">Fecha:</label>
+			<label for="fechaHoraActual">Fecha:</label>
 		  <input type="datetime" name="fechaHoraActual" id="fechaHoraActual" readonly>
 		</p>
     <p>

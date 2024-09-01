@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Hacer la solicitud al servidor
-    fetch('../php/mostrar_usuario.php')
+    fetch('../php/mostrar_compras.php')
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById('servicio-lista');
