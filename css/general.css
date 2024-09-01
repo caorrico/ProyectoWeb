@@ -11,17 +11,10 @@ body {
     color: #333; /* Color de texto base */
 }
 
-.container {
-    display: flex;
-    min-height: 100vh; /* Para que el contenedor cubra toda la altura de la pantalla */
-    flex-direction: row; /* Asegura que los elementos estén en fila */
-}
-
-
-
 .content {
     flex: 1; /* Toma el resto del espacio disponible */
     padding: 20px;
+    padding-top: 101px;
     background-color: white; /* Fondo blanco para el contenido */
 }
 
@@ -155,8 +148,7 @@ tr:hover {
 }
 
 .imgCentrado{
-	width: 50%;
-	margin: auto;
+	width: 80%;
 }
 
 .g{

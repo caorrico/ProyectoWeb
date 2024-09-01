@@ -12,7 +12,7 @@
     <div class="menu-lateral">
         <?php include 'menu.html'; ?>
     </div>
-    <div class="cont-principal">
+    <div class="cont-principal content">
         <h1 class="center">Bienvenido</h1>
         <h3 class="center" id="nombreUsuario"></h3>
         <div class="imgCentrado">
