@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td>${servicio.idservicio}</td>
                     <td>${servicio.nombre_servicio}</td>
                     <td>${servicio.descripcion_servicio}</td>
+                    <td>${servicio.activo == 1 ? 'Sí' : 'No'}</td>
                     <td>
                         <button onclick="editarServicio(${servicio.idservicio})" class="btn btn-edit btn-square">
-                            <i class="fas fa-edit"></i>
+                        <i class="fas fa-edit"></i>
                         </button>
                         <button onclick="eliminarServicio(${servicio.idservicio})" class="btn btn-delete btn-square">
                             <i class="fas fa-trash"></i>
@@ -47,15 +48,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function editarServicio(id) {
-    // Redirigir a una página de edición o mostrar un formulario para editar el servicio
-    window.location.href = `editar_servicio.html?id=${id}`;
+    console.log(id);
+    //window.location.href = `editar_servicio.html?id=${id}`;
 }
 
 function eliminarServicio(id) {
+    console.log(id);
     if (confirm('¿Estás seguro de que quieres eliminar este servicio?')) {
-        // Enviar una solicitud al servidor para eliminar el servicio
-        fetch(`http://localhost/ProyectoWeb/php/eliminar_servicio.php?id=${id}`, {
-            method: 'DELETE'
+
+        fetch('../php/eliminar_servicio.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: id })  // Enviar el id en el cuerpo de la solicitud
         })
         .then(response => {
             if (!response.ok) {
@@ -68,12 +74,13 @@ function eliminarServicio(id) {
                 // Actualizar la tabla después de eliminar
                 location.reload();
             } else {
-                alert('Error al eliminar el servicio');
+                alert('Error al eliminar el servicio: ' + (data.error || 'Error desconocido'));
             }
         })
         .catch(error => {
             console.error('Error al eliminar el servicio:', error);
-            alert('Error al eliminar el servicio');
+            alert('Error al eliminar el servicio: ' + error.message);
         });
     }
 }
+
