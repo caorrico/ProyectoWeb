@@ -18,21 +18,23 @@ include 'conexion.php';
 // Establecer el conjunto de caracteres a UTF-8 para evitar problemas de codificación
 $conn->set_charset("utf8");
 
-// Consulta para obtener los datos de la tabla 'servicio'
-$query = "SELECT `idpersona`, `nombre`, `apellido`, `cedula`, `telefono`, `correo`, `contrasena`, `activo`, `nombre_rol` FROM `persona`, `rol` where rol_idrol=idrol;";
+// Consulta SQL corregida usando INNER JOIN
+$query = "
+    SELECT p.idproducto, p.nombre_producto, p.detaller_producto, p.precio, c.nombre_categoria, p.activo 
+    FROM producto p
+    INNER JOIN categoria c ON p.categoria_idcategoria = c.idcategoria
+";
 $resultados = $conn->query($query);
 
 // Verificar si hubo un error en la consulta
 if (!$resultados) {
-    // Enviar respuesta de error en formato JSON
     echo json_encode(["error" => "Error en la consulta: " . $conn->error]);
     exit();
-}
+} 
 
 // Inicializar un arreglo para almacenar los resultados
 $data = [];
 if ($resultados->num_rows > 0) {
-    // Obtener los datos en formato asociativo
     $data = $resultados->fetch_all(MYSQLI_ASSOC);
 }
 

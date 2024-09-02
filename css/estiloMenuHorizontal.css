@@ -27,9 +27,15 @@ body {
     font-size: 60px;
     color: hsla(1,37%,60%,1.00);
     cursor: pointer;
-    margin-left: auto; /* Empuja el ícono de usuario al extremo derecho */
+    margin-right:  0 !important;
 }
 
+.nombreAlFinal{
+    font-size: 20px;
+    color: hsla(1,37%,60%,1.00) !important;
+    font-weight: bold;
+    margin-left: auto;
+}
 .dropdown-menu {
     display: none;
     position: absolute;

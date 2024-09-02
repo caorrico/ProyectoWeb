@@ -42,16 +42,8 @@ body {
     border-radius: 5px;
     font-size: 16px;
 }
-#bodeguero,#vendedor,#admin{
-    margin-right: 15%;
-    width: 25%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
+
 #fechaHoraActual,#fecha{
-    margin-right: 15%;
     width: 25%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -147,10 +139,18 @@ tr:hover {
     margin-left: 80%; /* Alinear a la izquierda */
 }
 
-.imgCentrado{
-	width: 80%;
-}
+
 
 .g{
     background-color: #B25068;
+}
+
+.doble{
+    margin-top: 3%;
+    margin-left: 10%;
+    display: flex;
+}
+.doble div{
+    width: 40%;
+    margin-right: 10%;
 }

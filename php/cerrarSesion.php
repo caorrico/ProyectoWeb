@@ -19,4 +19,5 @@ session_destroy();
 // Redireccionar al usuario a la página de inicio o de login
 header("Location: ../index.html");
 exit();
+$conn->close();
 ?>

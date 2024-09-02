@@ -1,8 +1,10 @@
 <?php
-
 // Mostrar todos los errores
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+// Iniciar sesión
+session_start();
 
 // CORS headers
 header("Access-Control-Allow-Origin: *");
@@ -43,7 +45,12 @@ $resultados = $stmt->get_result();
 // Procesamiento de datos
 if ($resultados->num_rows == 1) {
     // Credenciales correctas
-    $data = $resultados->fetch_all(MYSQLI_ASSOC);
+    $data = $resultados->fetch_assoc();
+    
+    // Guardar el nombre del usuario en la sesión
+    $_SESSION['nombre_usuario'] = $data['nombre'];
+    $_SESSION['idpersona'] = $data['idpersona'];
+    
     echo json_encode(["success" => true, "data" => $data]);
 } else {
     // Credenciales incorrectas
@@ -53,5 +60,4 @@ if ($resultados->num_rows == 1) {
 // Cerrar statement y conexión
 $stmt->close();
 $conn->close();
-
 ?>

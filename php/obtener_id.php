@@ -12,8 +12,8 @@ header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
 header('Content-Type: application/json'); // Asegurar que la respuesta sea JSON
 
-if (isset($_SESSION['nombre_usuario'])) {
-    echo json_encode(["success" => true, "nombre" => $_SESSION['nombre_usuario']]);
+if (isset($_SESSION['idpersona'])) {
+    echo json_encode(["success" => true, "idpersona" => $_SESSION['idpersona']]);
 } else {
     echo json_encode(["success" => false, "message" => "Usuario no autenticado."]);
 }

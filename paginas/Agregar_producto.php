@@ -10,23 +10,18 @@
 <body>
 <?php include 'usuario.html'; ?>
     <div class="menu-lateral">
-        <?php include 'menu.html'; ?>
+    <?php include __DIR__ . '/Menu_Permisos.php'; ?>
+
     </div>
     <div class="cont-principal content">
     <h1 class="center">Registro Productos</h1>
   <p>&nbsp;</p>
   <form id="form1" name="form1" method="post" action="../php/anadir.php">
     <p>
-			<label for="admin">Adminstrador:</label>
-		  <input type="text" name="admin" id="admin" readonly>
-		  <label for="fechaHoraActual">Fecha:</label>
+			<label for="fechaHoraActual">Fecha:</label>
 		  <input type="datetime" name="fechaHoraActual" id="fechaHoraActual" readonly>
 		</p>
 	  <p> 
-    <p>
-      <label for="codigo">Código:</label>
-      <input type="text" name="codigo" id="codigo"  placeholder="ASDASD2313">
-    </p>
     <p>
       <label for="nombreprod">Producto:</label>
       <input type="text" name="nombreprod" id="nombreprod" placeholder="Jabon Nivea">
@@ -34,10 +29,10 @@
     <p>
       <label for="categoria">Categoría:</label>
      
-      <input type="text" name="categoria" id="categoria" size="70" list="listCategoria">
-      <datalist id="listCategoria">  
-
-      </datalist>
+      <select id="categoria" name="categoria" required>
+                    <option value="">Seleccione una categoria</option>
+                </select>
+      
       </p>
     <p>
       <label for="descripcion">Descripción:</label>
@@ -59,5 +54,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../js/producto.js"></script>
 </body>
 </html>

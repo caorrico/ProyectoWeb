@@ -10,15 +10,14 @@
 <body>
 <?php include 'usuario.html'; ?>
     <div class="menu-lateral">
-        <?php include 'menu.html'; ?>
+    <?php include __DIR__ . '/Menu_Permisos.php'; ?>
+
     </div>
-    <div class="cont-principal">
+    <div class="cont-principal content">
     <h1 class="center">Detalle de Entrega Pedido</h1>
   <p>&nbsp;</p>  
   <form method="#" onsubmit="guardar();return false">
       <p>
-          <label for="bodeguero">Bodeguero:</label>
-        <input type="text" name="bodeguero" id="bodeguero" readonly>
         <label for="fechaHoraActual">Fecha:</label>
         <input type="datetime" name="fechaHoraActual" id="fechaHoraActual" readonly>
       </p>
