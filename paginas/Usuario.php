@@ -11,7 +11,8 @@
     
     <?php include 'usuario.html'; ?>
     <div class="menu-lateral">
-        <?php include 'menu.php'; ?>
+    <?php include __DIR__ . '/Menu_Permisos.php'; ?>
+
     </div>
     <div class="cont-principal content">
         <h1>Lista de Personas</h1>
