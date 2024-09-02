@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../css/menu.css" rel="stylesheet">
     <link href="../css/general.css" rel="stylesheet">
-    <title>Agregar Cliente</title>
+    <title>Factura</title>
 </head>
 <body>
 <?php include 'usuario.html'; ?>
@@ -15,12 +15,12 @@
     <div class="cont-principal content">
     <h1 class="center">Factura</h1>
   <p>&nbsp;</p>
-  <form id="form1" name="form1" method="post" action="../php/anadir.php">
+  <form id="formFactura" >
     <p>
       <label for="vendedor">Vendedor:</label>
       <input name="vendedor" type="text" id="vendedor" readonly="readonly">
       <label for="fecha">Fecha:</label>
-      <input name="fecha" type="date" id="fecha" readonly="readonly">
+      <input name="fecha" type="date" id="fecha"  value=" " readonly="readonly">
     </p>
     <p>
       <h3>Datos del Cliente</h3>
@@ -38,16 +38,19 @@
       <p>&nbsp;</p>
       <p>
         <label for="nombreProducto">Nombre Producto:</label>
-        <input type="text" name="nombreProducto" id="nombreProducto">
+        <select name="nombreProducto" id="nombreProducto">
+        <option value="0">Seleccione un producto</option>
+        <!-- aqui se ingresan los productos que se vayan a ingresar en el servicio -->
+      </select>
       </p>
       <p>
         <label for="cantidad">Cantidad:</label>
         <input type="number" name="cantidad" id="cantidad">
       </p>
       <p>
-        <input type="submit" name="enviarProducto" id="enviarProducto" value="Enviar">
+        <button name="enviarProducto" id="enviarProducto" onclick="agregarProducto(event)"> Añadir Producto</button>
       </p>
-      <table width="200" border="1">
+      <table  id="tablaProductos" width="200" border="1">
         <tbody>
           <tr>
             <td>Código</td>
@@ -57,11 +60,12 @@
           </tr>
         </tbody>
       </table>
-      <p>Total a pagar:</p>
+      <p id="totalPagar">Total a pagar:</p>
 	  <input type="submit" value="Generar factura">
   </form> 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="../js/factura.js"></script>
 </body>
 </html>

@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('Agregar_Servicio').addEventListener('submit', function (event) {
         event.preventDefault();
         console.log('listaProductos:', listaProductos);
+        var precioServicio = 0;
+        listaProductos.forEach(producto => {
+            precioServicio += parseFloat(producto.precio); 
+        });
         const formData = new FormData(this);
         const data = {
             nombre: formData.get('nombreserv'),
             descripcion: formData.get('descripcion'),
-            precio: formData.get('precio'),
+            precio: precioServicio,
             productos: listaProductos 
         };
         fetch('../php/insertar_servicio.php', {
@@ -27,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error:', error)); // Maneja errores en la petición
         limpiar();
+        window.location.href = "Mostrar_Servicios.php";
         
     });
 
@@ -49,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     
         listaProductos.push(producto);
+        let precioServicio = 0;
+        listaProductos.forEach(producto => {
+            precioServicio += parseFloat(producto.precio); 
+        });
+        document.getElementById('precio').value = precioServicio;
     
         const tabla = document.getElementById('tablaProductos');
         const nuevaFila = tabla.insertRow(); // Crea una nueva fila
@@ -73,6 +83,13 @@ function limpiar(){
     document.getElementById('nombreserv').value = '';  
     document.getElementById('descripcion').value = '';
     document.getElementById('precio').value = '';
+    document.getElementById('producto').value = '';
+    listaProductos = [];
+    var table = document.getElementById('tablaProductos');
+    var rowCount = table.rows.length;
+    for (var i = rowCount - 1; i > 0; i--) {
+        table.deleteRow(i);
+    }
 }
 
 function cargarProductos() {

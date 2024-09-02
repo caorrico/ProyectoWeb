@@ -53,6 +53,7 @@ if (isset($data['nombre'], $data['descripcion'], $data['precio'])) {
     $precio = $data['precio'];
     $activo = 1; 
     $productos = $data['productos'];
+
     // Extraer los IDs de los productos
     $productosIds = [];
     foreach ($productos as $producto) {
@@ -60,12 +61,12 @@ if (isset($data['nombre'], $data['descripcion'], $data['precio'])) {
     }
 
     // Preparar la consulta de inserción
-    $query = "INSERT INTO servicio (nombre_servicio, descripcion_servicio, activo) VALUES (?, ?, ?)";
+    $query = "INSERT INTO servicio (nombre_servicio, descripcion_servicio ,precio_ser, activo) VALUES (?, ?, ?, ?)";
 
     // Preparar la declaración
     $stmt = $conn->prepare($query);
     if ($stmt !== false) {
-        $stmt->bind_param('ssi', $nombre, $descripcion, $activo);
+        $stmt->bind_param('ssdi', $nombre, $descripcion, $precio, $activo);
 
         if ($stmt->execute()) {
             $servicioId = $stmt->insert_id;
