@@ -5,12 +5,13 @@
     <link href="../css/menu.css" rel="stylesheet">
     <link href="../css/general.css" rel="stylesheet">
     <title>Lista de Personas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
     
     <?php include 'usuario.html'; ?>
     <div class="menu-lateral">
-        <?php include 'menu.html'; ?>
+        <?php include 'menu.php'; ?>
     </div>
     <div class="cont-principal content">
         <h1>Lista de Personas</h1>
@@ -31,6 +32,7 @@
                         <th>Correo</th>
                         <th>Rol</th>
                         <th>Activo</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="servicio-lista">
@@ -41,6 +43,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../js/personas.js"></script>
+    <script src="../js/personas1.js"></script> 
+    <script>
+    
+    </script>
 </body>
 </html>

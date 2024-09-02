@@ -1,44 +1,53 @@
 <?php
-
-// Mostrar todos los errores (útil para depuración)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// CORS headers - Permiten que otros dominios accedan a este servicio
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-
-// Establecer el tipo de contenido a JSON
 header('Content-Type: application/json');
 
-// Incluir archivo de conexión a la base de datos
+// Conectar a la base de datos
 include 'conexion.php';
 
-// Establecer el conjunto de caracteres a UTF-8 para evitar problemas de codificación
-$conn->set_charset("utf8");
+// Verificar si los parámetros 'rol_idrol' y 'permiso_acceso' fueron pasados
+if (isset($_POST['rol_idrol']) && isset($_POST['permiso_acceso'])) {
+    $rol_idrol = $_POST['rol_idrol'];
+    $permiso_acceso = $_POST['permiso_acceso'];
 
-// Obtener los datos en formato JSON
-$data = json_decode(file_get_contents('php://input'), true);
+    // Imprimir los datos recibidos para depuración
+    error_log("Datos recibidos: ");
+    error_log("rol_idrol: " . $rol_idrol);
+    error_log("permiso_acceso: " . $permiso_acceso);
 
-// Verificar si se recibieron los datos correctamente
-if (!isset($data['id'])) {
-    echo json_encode(["success" => false, "error" => "Datos incompletos"]);
-    exit();
-}
+    // Preparar y ejecutar la consulta SQL
+    $sql = "DELETE FROM permisos WHERE rol_idrol = :rol_idrol AND permiso_acceso = :permiso_acceso";
+    try {
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            throw new Exception('Error al preparar la consulta.');
+        }
 
-$id = $conn->real_escape_string($data['id']); // Escapar el valor para evitar inyecciones SQL
+        $stmt->bindParam(':rol_idrol', $rol_idrol, PDO::PARAM_INT);
+        $stmt->bindParam(':permiso_acceso', $permiso_acceso, PDO::PARAM_STR);
 
-$sql = "UPDATE `servicio` SET `activo` = '0' WHERE `idservicio` = '$id'";
+        // Imprimir el estado de la consulta para depuración
+        error_log("Estado de la consulta: ");
+        error_log("SQL: " . $sql);
+        
+        if ($stmt->execute()) {
+            $response = array('success' => 'Permiso eliminado exitosamente.');
+        } else {
+            $response = array('error' => 'Error al eliminar el permiso.');
+        }
+    } catch (Exception $e) {
+        $response = array('error' => 'Error en la base de datos: ' . $e->getMessage());
+    }
 
-// Ejecutar la consulta
-$result = mysqli_query($conn, $sql);
+    // Enviar respuesta en formato JSON
+    echo json_encode($response);
 
-if (!$result) {
-    echo json_encode(["success" => false, "error" => "Error al eliminar el servicio: " . $conn->error]);
+    // Imprimir la respuesta para depuración
+    error_log("Respuesta enviada: " . json_encode($response));
 } else {
-    echo json_encode(["success" => true]);
+    $response = array('error' => 'Faltan parámetros.');
+    echo json_encode($response);
+    
+    // Imprimir la respuesta para depuración
+    error_log("Respuesta enviada: " . json_encode($response));
 }
-
-$conn->close();
 ?>

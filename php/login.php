@@ -49,6 +49,7 @@ if ($resultados->num_rows == 1) {
     
     // Guardar el nombre del usuario en la sesión
     $_SESSION['nombre_usuario'] = $data['nombre'];
+    $_SESSION['idpersona'] = $data['idpersona'];
     
     echo json_encode(["success" => true, "data" => $data]);
 } else {

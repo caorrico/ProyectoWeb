@@ -139,10 +139,18 @@ tr:hover {
     margin-left: 80%; /* Alinear a la izquierda */
 }
 
-.imgCentrado{
-	width: 80%;
-}
+
 
 .g{
     background-color: #B25068;
+}
+
+.doble{
+    margin-top: 3%;
+    margin-left: 10%;
+    display: flex;
+}
+.doble div{
+    width: 40%;
+    margin-right: 10%;
 }

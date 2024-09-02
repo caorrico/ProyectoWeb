@@ -10,7 +10,7 @@
 <body>
 <?php include 'usuario.html'; ?>
     <div class="menu-lateral">
-        <?php include 'menu.html'; ?>
+        <?php include 'menu.php'; ?>
     </div>
     <div class="cont-principal">
     <h1 class="center">Registrar Rol</h1>

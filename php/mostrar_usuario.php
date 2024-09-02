@@ -19,7 +19,7 @@ include 'conexion.php';
 $conn->set_charset("utf8");
 
 // Consulta para obtener los datos de la tabla 'servicio'
-$query = "SELECT * from persona";
+$query = "SELECT `idpersona`, `nombre`, `apellido`, `cedula`, `telefono`, `correo`, `contrasena`, `activo`, `nombre_rol` FROM `persona`, `rol` where rol_idrol=idrol;";
 $resultados = $conn->query($query);
 
 // Verificar si hubo un error en la consulta

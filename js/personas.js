@@ -1,46 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Hacer la solicitud al servidor
-    fetch('../php/mostrar_usuario.php')
-        .then(response => response.json())
-        .then(data => {
-            const tbody = document.getElementById('servicio-lista');
-            // Limpiar el tbody
-            tbody.innerHTML = '';
-            // Comprobar si hay errores
-            if (data.error) {
-                const errorRow = document.createElement('tr');
-                const errorCell = document.createElement('td');
-                errorCell.colSpan = 7; // Número de columnas en la tabla
-                errorCell.className = 'text-danger';
-                errorCell.textContent = data.error;
-                errorRow.appendChild(errorCell);
-                tbody.appendChild(errorRow);
-                return;
-            }
-            // Construir el HTML para las filas de la tabla
-            let rowsHtml = '';
-            data.forEach(persona => {
-                // Convertir persona.activo a número
-                const activo = Number(persona.activo);
-                // Determinar la clase de la fila
-                let rowClass = '';
-                if (activo == 0) {
-                    rowClass = 'rojo';
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id'); // Obtén el ID del parámetro de la URL
+
+    if (id) {
+        // Llenar el formulario con los datos del usuario para editar
+        fetch(`../php/obtener_usuario.php?id=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById('usuarioId').value = data.idpersona;
+                    document.getElementById('nombres').value = data.nombre;
+                    document.getElementById('apellidos').value = data.apellido;
+                    document.getElementById('cedula').value = data.cedula;
+                    document.getElementById('telefono').value = data.telefono;
+                    document.getElementById('correo').value = data.correo;
+                    // Si se manejan roles, puedes llenar el select aquí
+                    // document.getElementById('rol').value = data.rol;
                 }
-                 
-                rowsHtml += `
-                    <tr class="${rowClass}">
-                        <td>${persona.nombre}  ${persona.apellido}</td>
-                        <td>${persona.apellido}</td>
-                        <td>${persona.cedula}</td>
-                        <td>${persona.telefono}</td>
-                        <td>${persona.correo}</td>
-                        <td>${persona.nombre_rol}</td>
-                        <td>${persona.activo}</td>
-                    </tr>
-                `;
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos del usuario:', error);
             });
-            tbody.innerHTML = rowsHtml;
+    }
+});
+
+document.getElementById('usuarioForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const id = document.getElementById('usuarioId').value;
+    const nombres = document.getElementById('nombres').value;
+    const apellidos = document.getElementById('apellidos').value;
+    const cedula = document.getElementById('cedula').value;
+    const telefono = document.getElementById('telefono').value;
+    const contrasena = document.getElementById('contrasena').value;
+    const repetircontrasena = document.getElementById('repetircontrasena').value;
+    const correo = document.getElementById('correo').value;
+    const rol = document.getElementById('rol').value;
+
+    if (contrasena !== repetircontrasena) {
+        alert('Las contraseñas no coinciden.');
+        return;
+    }
+
+    const url = id ? '../php/editar_usuario.php' : '../php/agregar_usuario.php'; // Cambia la URL según el caso
+    const method = id ? 'PUT' : 'POST'; // Usa PUT para editar, POST para agregar
+
+    fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            idpersona: id,
+            nombres: nombres,
+            apellidos: apellidos,
+            cedula: cedula,
+            telefono: telefono,
+            contrasena: contrasena,
+            correo: correo,
+            rol: rol
         })
-        .catch(error => console.error('Error al obtener los datos:', error));
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = 'lista_usuarios.php'; // Redirige a la lista de usuarios después de guardar
+        } else {
+            alert('Error al guardar el usuario: ' + (data.error || 'Error desconocido'));
+        }
+    })
+    .catch(error => {
+        console.error('Error al enviar los datos:', error);
+        alert('Error al enviar los datos: ' + error.message);
+    });
 });

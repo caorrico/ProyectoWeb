@@ -10,11 +10,12 @@
 <body>
 <?php include 'usuario.html'; ?>
     <div class="menu-lateral">
-        <?php include 'menu.html'; ?>
+        <?php include 'menu.php'; ?>
     </div>
     <div class="cont-principal content">
         <h1 class="center">Registrar Usuario</h1>
         <form id="usuarioForm">
+            <input type="hidden" id="usuarioId" name="usuarioId">
             <p>
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" placeholder="Carlos Michael" required><br><br>
